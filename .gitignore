@@ -1,0 +1,11 @@
+# Ignore all node_modules in all folders
+node_modules/
+
+# Ignore package files everywhere
+package.json
+package-lock.json
+
+# Optional but recommended
+.env
+dist
+build

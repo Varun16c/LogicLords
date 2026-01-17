@@ -1,0 +1,928 @@
+/* ================= ROOT ================= */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background: #f4f6f9;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ================= SIDEBAR ================= */
+.dashboard-sidebar {
+  width: 240px;
+  background: #2c2f8c;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease, padding 0.3s ease;
+}
+
+/* LOGO */
+.dashboard-logo {
+  text-align: center;
+  margin-bottom: 30px;
+  transition: opacity 0.2s ease;
+}
+
+/* ================= NAV ================= */
+.dashboard-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard-nav button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.3s ease;
+}
+
+.dashboard-nav button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ICON */
+.dashboard-nav .icon,
+.dashboard-logout .icon {
+  font-size: 20px;
+  min-width: 24px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* LABEL */
+.dashboard-nav .label,
+.dashboard-logout .label {
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* ================= LOGOUT ================= */
+.dashboard-logout {
+  margin-top: auto;
+  background: #96973f;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+/* ================= COLLAPSED SIDEBAR ================= */
+.dashboard-container.collapsed .dashboard-sidebar {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Hide everything when collapsed */
+.dashboard-container.collapsed .dashboard-logo,
+.dashboard-container.collapsed .dashboard-nav button,
+.dashboard-container.collapsed .dashboard-logout,
+.dashboard-container.collapsed .dashboard-nav .icon,
+.dashboard-container.collapsed .dashboard-logout .icon,
+.dashboard-container.collapsed .dashboard-nav .label,
+.dashboard-container.collapsed .dashboard-logout .label {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-20px);
+}
+
+/* ================= MAIN ================= */
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= HEADER ================= */
+.dashboard-header {
+  background: #fff;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* HAMBURGER */
+.hamburger {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+.dashboard-hero {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+}
+
+.hero-card {
+  background: linear-gradient(135deg, #2c2f8c, #4b4fcf);
+  color: #fff;
+  padding: 25px;
+  border-radius: 14px;
+}
+
+/* ================= STATS ================= */
+.stats {
+  display: flex;
+  gap: 15px;
+}
+
+.stat-box {
+  background: #fff;
+  padding: 18px 22px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 120px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.stat-box span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* ================= CONTENT ================= */
+.dashboard-content {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-items: center;
+}
+
+/* ================= BIG MANAGEMENT CARD ================= */
+.big-management-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+}
+
+.manage-section {
+  display: flex;
+  align-items: center;
+  padding: 25px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.manage-section:last-child {
+  border-bottom: none;
+}
+
+.manage-section:hover {
+  background: #f8f9ff;
+}
+
+/* Different colors for each section */
+.profile-section {
+  border-left: 6px solid #2c2f8c;
+}
+
+.courses-section {
+  border-left: 6px solid #4CAF50;
+}
+
+.students-section {
+  border-left: 6px solid #FF9800;
+}
+
+.section-icon {
+  font-size: 32px;
+  margin-right: 20px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f6f9;
+  border-radius: 12px;
+}
+
+.section-content {
+  flex: 1;
+}
+
+.section-content h3 {
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.section-content p {
+  color: #666;
+  font-size: 14px;
+}
+
+.section-arrow {
+  color: #2c2f8c;
+  font-size: 24px;
+  font-weight: bold;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.manage-section:hover .section-arrow {
+  opacity: 1;
+}
+
+/* CARD - Keep for compatibility */
+.dashboard-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ACTION BUTTON - Keep for compatibility */
+.card-btn {
+  margin-top: 12px;
+  background: #2c2f8c;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card-btn:hover {
+  background: #1f2270;
+}
+
+/* =========================
+   Manage Students (ms-*)
+   Paste at bottom of Dashboard.css
+========================= */
+
+/* Card header row */
+.ms-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:14px;
+}
+
+.ms-title h3{
+  margin:0;
+  font-size:20px;
+  font-weight:700;
+  color:#1f2937;
+}
+
+.ms-subtitle{
+  margin:6px 0 0 0;
+  font-size:13px;
+  color:#6b7280;
+}
+
+/* Buttons */
+.ms-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-success{
+  border:0;
+  padding:10px 14px;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+  transition:transform .12s ease, opacity .12s ease;
+  white-space:nowrap;
+}
+
+.btn-primary{
+  background:#2f6fed;
+  color:#fff;
+}
+
+.btn-success{
+  background:#22c55e;
+  color:#fff;
+}
+
+.btn-primary:hover,
+.btn-success:hover{
+  transform:translateY(-1px);
+  opacity:.95;
+}
+
+/* Search */
+.ms-search-row{
+  display:flex;
+  justify-content:flex-start;
+  margin:10px 0 14px;
+}
+
+.ms-search{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:min(460px, 100%);
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:10px 12px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.05);
+}
+
+.ms-search-icon{
+  font-size:16px;
+  opacity:.75;
+}
+
+.ms-search input{
+  border:0;
+  outline:none;
+  width:100%;
+  font-size:14px;
+  color:#111827;
+}
+
+/* Table wrapper (horizontal scroll like reference) */
+.ms-table-wrap{
+  width:100%;
+  overflow:auto;
+  border:1px solid #eef2f7;
+  border-radius:12px;
+  background:#fff;
+}
+
+/* Table */
+.ms-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  min-width:1200px; /* forces horizontal scroll on smaller screens */
+}
+
+.ms-table thead th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  background:#f8fafc;
+  color:#374151;
+  font-size:13px;
+  font-weight:700;
+  padding:12px 10px;
+  border-bottom:1px solid #e5e7eb;
+  white-space:nowrap;
+}
+
+.ms-table tbody td{
+  padding:12px 10px;
+  font-size:13px;
+  color:#111827;
+  border-bottom:1px solid #eef2f7;
+  vertical-align:middle;
+  white-space:nowrap;
+}
+
+.ms-table tbody tr:hover{
+  background:#fbfdff;
+}
+
+.ms-email{
+  color:#2563eb;
+  font-weight:600;
+}
+
+/* Avatar */
+.ms-avatar{
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  background:#eef2f7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.ms-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.ms-avatar-fallback{
+  font-size:18px;
+  opacity:.7;
+}
+
+/* Long cells */
+.ms-long{
+  max-width:240px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Placed color */
+.ms-yes{
+  color:#16a34a;
+  font-weight:700;
+}
+
+.ms-no{
+  color:#dc2626;
+  font-weight:700;
+}
+
+/* Row action icons */
+.ms-row-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.icon-btn{
+  border:1px solid #e5e7eb;
+  background:#fff;
+  border-radius:8px;
+  padding:6px 8px;
+  cursor:pointer;
+  transition:transform .12s ease, background .12s ease;
+}
+
+.icon-btn:hover{
+  transform:translateY(-1px);
+  background:#f8fafc;
+}
+
+.icon-btn.danger{
+  border-color:#fecaca;
+}
+
+/* Footer */
+.ms-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  padding:14px 4px 0;
+  flex-wrap:wrap;
+}
+
+.ms-showing{
+  color:#6b7280;
+  font-size:13px;
+}
+
+/* Pagination (like reference) */
+.ms-pagination{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.ms-page-btn{
+  border:1px solid #e5e7eb;
+  background:#fff;
+  border-radius:8px;
+  padding:8px 10px;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.ms-page-btn:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+.ms-page-num{
+  border:1px solid #e5e7eb;
+  background:#fff;
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:700;
+  display:grid;
+  place-items:center;
+}
+
+.ms-page-num.active{
+  background:#2f6fed;
+  color:#fff;
+  border-color:#2f6fed;
+}
+
+.ms-dots{
+  color:#6b7280;
+  padding:0 4px;
+}
+
+/* =========================
+   Modals (Bulk + Add)
+========================= */
+.ms-modal-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(15, 23, 42, 0.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  z-index:999;
+}
+
+.ms-modal{
+  width:min(680px, 96vw);
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.25);
+  overflow:hidden;
+  max-height:90vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.ms-modal.large{
+  width:min(860px, 98vw);
+}
+
+.ms-modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 16px;
+  border-bottom:1px solid #eef2f7;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:2;
+}
+
+.ms-modal-header h3{
+  margin:0;
+  font-size:18px;
+  font-weight:800;
+}
+
+.ms-close{
+  border:0;
+  background:transparent;
+  font-size:18px;
+  cursor:pointer;
+  opacity:.75;
+}
+
+.ms-modal-body{
+  padding:16px;
+  overflow-y:auto;
+  flex:1;
+}
+
+.ms-modal-footer{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  padding:14px 16px;
+  border-top:1px solid #eef2f7;
+  position:sticky;
+  bottom:0;
+  background:#fff;
+  z-index:2;
+}
+
+/* buttons inside modal */
+.ms-btn{
+  border:1px solid #e5e7eb;
+  background:#fff;
+  border-radius:10px;
+  padding:10px 14px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.ms-btn.primary{
+  background:#2f6fed;
+  border-color:#2f6fed;
+  color:#fff;
+}
+
+.ms-btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+/* Bulk requirements box */
+.ms-requirements{
+  background:#eef6ff;
+  border:1px solid #cfe3ff;
+  border-radius:12px;
+  padding:14px;
+  margin-bottom:14px;
+}
+
+.ms-requirements h4{
+  margin:0 0 6px 0;
+  color:#1d4ed8;
+  font-size:16px;
+  font-weight:900;
+  text-align:center;
+}
+
+.ms-requirements p{
+  margin:6px 0;
+  color:#1f2937;
+  font-size:13px;
+  text-align:center;
+}
+
+.ms-req-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px 18px;
+  margin-top:10px;
+  color:#1d4ed8;
+  font-weight:700;
+  font-size:13px;
+  justify-items:center;
+  text-align:center;
+}
+
+.ms-req-note{
+  margin-top:10px !important;
+  color:#1f2937 !important;
+  font-weight:600;
+}
+
+/* File block */
+.ms-file-block{
+  border:1px dashed #cbd5e1;
+  border-radius:12px;
+  padding:14px;
+  background:#fff;
+}
+
+.ms-file-title{
+  text-align:center;
+  font-weight:800;
+  margin-bottom:10px;
+  color:#334155;
+}
+
+.ms-file-help{
+  text-align:center;
+  margin-top:8px;
+  font-size:12px;
+  color:#6b7280;
+}
+
+.ms-selected-file{
+  margin-top:10px;
+  background:#f1f5f9;
+  border-radius:10px;
+  padding:10px 12px;
+  text-align:center;
+  font-size:13px;
+}
+
+/* Bulk results blocks */
+.ms-bulk-results{
+  margin-top:14px;
+  display:grid;
+  gap:10px;
+}
+
+.ms-success-box{
+  background:#eaf8ef;
+  border:1px solid #b7e4c7;
+  color:#166534;
+  border-radius:12px;
+  padding:12px 14px;
+  font-weight:900;
+  text-align:center;
+}
+
+.ms-error-box{
+  background:#fdecec;
+  border:1px solid #fecaca;
+  border-radius:12px;
+  padding:12px 14px;
+}
+
+.ms-error-title{
+  font-weight:900;
+  color:#b91c1c;
+  text-align:center;
+  margin-bottom:8px;
+}
+
+.ms-error-list{
+  max-height:160px;
+  overflow:auto;
+  color:#b91c1c;
+  font-weight:700;
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* Form grid */
+.ms-form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.ms-form-grid label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-weight:700;
+  color:#374151;
+  font-size:13px;
+}
+
+.ms-form-grid input{
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:10px 12px;
+  outline:none;
+  font-size:14px;
+}
+
+.ms-form-grid input:focus{
+  border-color:#93c5fd;
+  box-shadow:0 0 0 3px rgba(59,130,246,0.18);
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .ms-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .ms-req-grid{
+    grid-template-columns:1fr;
+  }
+  .ms-form-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ===== Make ManageStudents section use full width ===== */
+
+/* Ensure main area can expand fully */
+.dashboard-main {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Content area should not be constrained */
+.dashboard-content {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Your card should stretch edge-to-edge inside main content */
+.dashboard-card.full-width {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Table container should also stretch full width */
+.ms-table-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* If your CSS has any container that centers content, kill it here */
+.dashboard-content .dashboard-card {
+  max-width: 100% !important;
+}
+
+/* =========================
+   FIX: keep page in 100% viewport and allow table horizontal scroll ONLY
+========================= */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.dashboard-container,
+.dashboard-main,
+.dashboard-content,
+.dashboard-card.full-width {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.ms-table-wrap {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: 100% !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+/* ==============================
+   ADMIN – INSTRUCTOR MANAGEMENT
+================================ */
+
+.admin-panel {
+  padding: 20px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.admin-table th,
+.admin-table td {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.pending {
+  background-color: #fff7ed;
+  color: #ea580c;
+}
+
+.status.approved {
+  background-color: #ecfdf5;
+  color: #16a34a;
+}
+
+.status.rejected {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+.admin-table button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.admin-table button:hover {
+  opacity: 0.9;
+}
+
+.admin-table button.danger {
+  background-color: #dc2626;
+  color: #fff;
+}
+
+.admin-table button:not(.danger) {
+  background-color: #2563eb;
+  color: #fff;
+}
